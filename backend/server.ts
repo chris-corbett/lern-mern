@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 
-const projectsRouter = require("./routes/projects");
+const projectRouter = require("./routes/ProjectRouter");
 
 // Middleware
 app.use(express.json());
@@ -14,7 +14,7 @@ app.use((req: any, res: any, next: any) => {
 });
 
 // Routes
-app.use("/api/projects", projectsRouter);
+app.use("/api/projects", projectRouter);
 
 // Database connection
 mongoose
