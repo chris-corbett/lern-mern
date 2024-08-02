@@ -23,7 +23,7 @@ const Home = () => {
                 {projects &&
                     projects.map((project: any) => (
                         <div key={project._id} className="project">
-                            <h2>{project.name}</h2>
+                            <h2>{project.title}</h2>
                             <p>{project.description}</p>
                         </div>
                     ))}
