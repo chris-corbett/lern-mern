@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+// Components
+import ProjectDetails from "../components/ProjectDetails";
+
 const Home = () => {
     const [projects, setProjects] = useState([]);
 
@@ -18,13 +21,11 @@ const Home = () => {
 
     return (
         <div className="home">
-            <div className="projects">
+            {/* Projects List */}
+            <div className="m-16">
                 {projects &&
                     projects.map((project: any) => (
-                        <div key={project._id} className="project">
-                            <h2>{project.title}</h2>
-                            <p>{project.description}</p>
-                        </div>
+                        <ProjectDetails key={project._id} project={project} />
                     ))}
             </div>
         </div>
