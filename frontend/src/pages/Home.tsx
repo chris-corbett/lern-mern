@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useProjectsContext } from "../hooks/UseProjectsContext";
 
 // Components
 import ProjectDetails from "../components/ProjectDetails";
+import ProjectForm from "../components/ProjectForm";
 
 const Home = () => {
-    const [projects, setProjects] = useState([]);
+    const { projects, dispatch } = useProjectsContext();
 
     useEffect(() => {
         const fetchProjects = async () => {
@@ -12,7 +14,7 @@ const Home = () => {
             const json = await response.json();
 
             if (response.ok) {
-                setProjects(json);
+                dispatch({ type: "SET_PROJECTS", payload: json });
             }
         };
 
@@ -20,14 +22,15 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="home">
+        <div className="flex">
             {/* Projects List */}
-            <div className="m-16">
+            <div className="m-16 flex-grow">
                 {projects &&
                     projects.map((project: any) => (
                         <ProjectDetails key={project._id} project={project} />
                     ))}
             </div>
+            <ProjectForm />
         </div>
     );
 };
