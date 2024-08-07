@@ -1,6 +1,9 @@
 import { createContext, useReducer } from "react";
 
-export const ProjectContext = createContext({});
+const projects: any = [];
+const dispatch = ({}: { type: any; payload: any }) => {};
+
+export const ProjectContext = createContext({ projects, dispatch });
 
 export const projectsReducer = (state: any, action: any) => {
     switch (action.type) {
