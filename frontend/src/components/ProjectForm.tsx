@@ -34,7 +34,7 @@ const ProjectForm = () => {
     return (
         <form
             onSubmit={handleSubmit}
-            className="flex flex-col m-16 p-8 bg-blue-400 rounded-lg shadow-lg"
+            className="top-0 flex flex-col p-8 bg-rose-200 w-auto mr-4"
         >
             <h3 className="text-lg font-bold drop-shadow-lg text-gray-900">
                 Add a New Project Idea
@@ -59,7 +59,7 @@ const ProjectForm = () => {
             <button className="border-collapse border-2 text-gray-900 border-green-400 bg-green-400 rounded-lg p-2 my-2 mx-8 shadow-lg hover:border-solid hover:border-green-500">
                 Add Idea
             </button>
-            {error && <div className="text-red-500">{error}</div>}
+            {error && <div className="text-red-500 max-w-full">{error}</div>}
         </form>
     );
 };

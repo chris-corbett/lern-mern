@@ -22,7 +22,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="flex">
+        <div className="flex bg-rose-200">
             {/* Projects List */}
             <div className="m-16 flex-grow">
                 {projects &&
