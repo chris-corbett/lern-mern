@@ -25,6 +25,19 @@ const getProjectById = async (req: any, res: any) => {
 // POST project
 const createProject = async (req: any, res: any) => {
     const { title, description } = req.body;
+
+    let emptyFields: any[] = [];
+
+    if (!title) {
+        emptyFields.push("title");
+    }
+
+    if (emptyFields.length > 0) {
+        return res
+            .status(400)
+            .json({ error: "Title cannot be empty", emptyFields });
+    }
+
     try {
         const project = await Project.create({ title, description });
         res.status(200).json(project);

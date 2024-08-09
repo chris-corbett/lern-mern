@@ -19,7 +19,7 @@ const ProjectDetails = ({ project }: { project: any }) => {
     };
 
     return (
-        <div className="flex fleshadow-lg m-4 p-2 rounded-lg bg-white min-h-20 ">
+        <div className="flex shadow-lg m-4 p-2 rounded-lg bg-white min-h-20 ">
             <div>
                 <h1 className="text-lg font-bold text-gray-900">
                     {project.title}

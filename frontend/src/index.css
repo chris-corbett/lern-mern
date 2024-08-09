@@ -8,6 +8,6 @@
     }
 
     .input-label {
-        @apply text-gray-800 mt-4;
+        @apply text-gray-800 mt-4 drop-shadow-lg;
     }
 }
