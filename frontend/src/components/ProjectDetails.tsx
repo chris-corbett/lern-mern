@@ -1,7 +1,12 @@
+import { useState } from "react";
 import { useProjectsContext } from "../hooks/UseProjectsContext";
+import Modal from "./Modal";
+import EditForm from "./EditForm";
 
 const ProjectDetails = ({ project }: { project: any }) => {
     const { dispatch } = useProjectsContext();
+
+    const [open, setOpen] = useState(false);
 
     const handleClick = async () => {
         const response = await fetch(
@@ -30,9 +35,17 @@ const ProjectDetails = ({ project }: { project: any }) => {
                 </p>
             </div>
             <div className="ml-auto">
-                <button className="border-collapse border-2 text-gray-900 border-yellow-400 bg-yellow-400 rounded-lg p-2 px-4 min-w-20 my-2 ml-2 shadow-lg hover:border-solid hover:border-yellow-500">
+                <button
+                    onClick={() => {
+                        setOpen(true);
+                    }}
+                    className="border-collapse border-2 text-gray-900 border-yellow-400 bg-yellow-400 rounded-lg p-2 px-4 min-w-20 my-2 ml-2 shadow-lg hover:border-solid hover:border-yellow-500"
+                >
                     Edit
                 </button>
+                <Modal open={open} onClose={() => setOpen(false)}>
+                    <EditForm project={project} />
+                </Modal>
                 <button
                     onClick={handleClick}
                     className="border-collapse border-2 text-gray-900 border-red-400 bg-red-400 rounded-lg p-2 px-4 min-w-20 my-2 ml-2 shadow-lg hover:border-solid hover:border-red-500"

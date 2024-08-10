@@ -19,7 +19,7 @@ const Home = () => {
         };
 
         fetchProjects();
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className="flex bg-indigo-200">
